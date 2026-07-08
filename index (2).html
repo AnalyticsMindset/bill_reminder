@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Reminder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Bill Reminder</h1>
+            <p>Never miss a payment again</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Upcoming</h3>
+                <p id="upcoming-count">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Due</h3>
+                <p id="total-due">$0.00</p>
+            </div>
+            <div class="stat-card">
+                <h3>This Month</h3>
+                <p id="this-month">0</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Add Bill Form -->
+            <section class="add-bill">
+                <h2>Add New Bill</h2>
+                <form id="bill-form">
+                    <input type="text" id="bill-name" placeholder="Bill Name (e.g. Netflix)" required>
+                    <input type="number" id="bill-amount" placeholder="Amount" step="0.01" required>
+                    <input type="date" id="bill-due" required>
+                    <select id="bill-recurrence">
+                        <option value="one-time">One-time</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                    <select id="bill-category">
+                        <option value="Utilities">Utilities</option>
+                        <option value="Subscription">Subscription</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button type="submit">Add Bill</button>
+                </form>
+            </section>
+
+            <!-- Bills List -->
+            <section class="bills-list">
+                <div class="list-header">
+                    <h2>My Bills</h2>
+                    <div class="filters">
+                        <input type="text" id="search" placeholder="Search bills...">
+                        <select id="filter-status">
+                            <option value="all">All</option>
+                            <option value="upcoming">Upcoming</option>
+                            <option value="overdue">Overdue</option>
+                            <option value="paid">Paid</option>
+                        </select>
+                    </div>
+                </div>
+                <ul id="bills-list" class="bills"></ul>
+            </section>
+        </div>
+
+        <!-- Reminders -->
+        <div id="reminders" class="reminders"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
